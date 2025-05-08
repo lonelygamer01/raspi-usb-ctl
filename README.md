@@ -15,7 +15,8 @@ Usage:
 sudo usbctl enable / disable a / all / 1 / 2 / 3 / 4
 sudo usbctl status
 
-wait for few seconds to update plug in a pendrive or keyboard and do 'lsusb'.
+Wait for few seconds to update, plug in a pendrive or keyboard and do 'lsusb'.
+No need to restart anything or replug any device.
 
 EDIT:
 
