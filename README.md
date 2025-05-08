@@ -13,9 +13,11 @@ This is for security purpose, if you cant separate / lock away the device from u
 Usage:
 
 sudo usbctl enable / disable a / all / 1 / 2 / 3 / 4
+
 sudo usbctl status
 
 Wait for few seconds to update, plug in a pendrive or keyboard and do 'lsusb'.
+
 No need to restart anything or replug any device.
 
 EDIT:
