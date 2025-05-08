@@ -1,0 +1,38 @@
+#!/bin/bash
+
+howto="[sudo usbctl enable/disable a/all/1/2/3/4 | sudo usbctl status]"
+
+if [ "$1" = "disable" ]; then
+    if [ "$2" = "all" ] || [ "$2" = "a" ]; then
+        for dev in /sys/bus/usb/devices/usb*/authorized; do
+            echo 0 | sudo tee "$dev"
+        done
+    elif [ "$2" = "1" ] || [ "$2" = "2" ] || [ "$2" = "3" ] || [ "$2" = "4" ]; then
+        echo 0 | sudo tee /sys/bus/usb/devices/usb"$2"/authorized
+    else
+        echo "$howto"
+    fi
+
+elif [ "$1" = "enable" ]; then
+    if [ "$2" = "all" ] || [ "$2" = "a" ]; then
+        for dev in /sys/bus/usb/devices/usb*/authorized; do
+            echo 1 | sudo tee "$dev"
+        done
+    elif [ "$2" = "1" ] || [ "$2" = "2" ] || [ "$2" = "3" ] || [ "$2" = "4" ]; then
+        echo 1 | sudo tee /sys/bus/usb/devices/usb"$2"/authorized
+    else
+        echo "$howto"
+    fi
+
+elif [ "$1" = "status" ]; then
+    index=0
+    for dev in /sys/bus/usb/devices/usb*/authorized; do
+        index=$((index + 1))
+        value=$(cat "$dev")
+        echo "usb$index: $value"
+    done
+
+else
+    echo "$howto"
+    exit 1
+fi
