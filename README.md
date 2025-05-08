@@ -6,7 +6,7 @@ In order to use the command 'usbctl' place the bash into /usr/local/bin/ .
 
 Place the service file into /etc/systemd/system/.
 
-The thing will initially disable the 4 port and if you need one, just enable that port or enable all.
+The thing will initially disable the 4 ports and if you need one, just enable that port or enable all.
 
 This is for security purpose, if you cant separate / lock away the device from unathorized ppl.
 
