@@ -1,0 +1,12 @@
+# /etc/systemd/system/usbctl.service
+[Unit]
+Description=USB port disable
+After=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/usbctl disable all
+Restart=always
+User=root
+[Install]
+WantedBy=multi-user.target
